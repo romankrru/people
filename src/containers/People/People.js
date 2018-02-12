@@ -119,10 +119,12 @@ class People extends Component {
       <CustomTable>
         <Caption icon={peopleIcon}>PEOPLE</Caption>
         <Thead>
-          <Th>&nbsp;</Th>
-          <Th>Ideas</Th>
-          <Th>Following</Th>
-          <Th>Followers</Th>
+          <Tr>
+            <Th>&nbsp;</Th>
+            <Th>Ideas</Th>
+            <Th>Following</Th>
+            <Th>Followers</Th>
+          </Tr>
         </Thead>
         <Tbody>
           {people}
