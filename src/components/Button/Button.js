@@ -22,7 +22,6 @@ const Button = (props) => {
   let buttonContent = props.children;
 
   if (props.buttonType === 'toggle') {
-    console.log(props.isActive);
     buttonContent = (
       <Fragment>
         <img
