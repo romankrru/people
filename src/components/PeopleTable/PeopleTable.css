@@ -4,6 +4,8 @@
 }
 
 .PeopleTableCaption {
+  display: flex;
+  align-items: center;
   padding-bottom: 8px;
   
   font-weight: bold;

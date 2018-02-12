@@ -1,7 +1,8 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 
 import styles from './PeopleTable.css';
 import Person from '../Person/Person';
+import PeopleIcon from '../../assets/img/icons/people.svg';
 
 const PeopleTable = (props) => {
   const people = props.people.map(person => {
@@ -13,6 +14,7 @@ const PeopleTable = (props) => {
             avatar={person.avatar}
             rating={person.rating}
             isFollowing={person.isFollowing}
+            toggleFollowing={() => props.toggleFollowing(person.id)}
           />
         </td>
         <td className={styles.PeopleTableStat}>{person.stats.ideas}</td>
@@ -25,11 +27,15 @@ const PeopleTable = (props) => {
   return (
     <Fragment>
       <div className={styles.PeopleTableCaption}>
-        <i className={`fas fa-users ${styles.PeopleTableCaptionIcon}`} />
-        PEOPLE
+        <img
+          src={PeopleIcon}
+          alt="people" 
+          className={styles.PeopleTableCaptionIcon}
+        />
+        <span>PEOPLE</span>
       </div>
-       <div className={styles.PeopleTableWrapper}>
-        <table  className={styles.PeopleTable}>
+      <div className={styles.PeopleTableWrapper}>
+        <table className={styles.PeopleTable}>
           <thead>
             <tr>
               <th>&nbsp;</th>
@@ -44,7 +50,7 @@ const PeopleTable = (props) => {
         </table>
       </div>
     </Fragment>
-   
+
   );
 }
 
