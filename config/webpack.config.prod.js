@@ -272,9 +272,12 @@ module.exports = {
         // Pending further investigation:
         // https://github.com/mishoo/UglifyJS2/issues/2011
         comparisons: false,
+        keep_fnames: true,
       },
       mangle: {
         safari10: true,
+        keep_fnames: true,
+        keep_classnames: true,
       },
       output: {
         comments: false,
