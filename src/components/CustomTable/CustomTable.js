@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './CustomTable.css';
+import Button from '../Button/Button';
 
 export const Caption = props => {
   return (
@@ -53,7 +54,7 @@ export const CustomTable = props => {
   });
 
   return (
-    <div>
+    <div className={styles.CustomTableContainer}>
       {mappedChildren.Caption}
       <div className={styles.CustomTableWrapper}>
         <table className={styles.CustomTable}>
@@ -65,6 +66,7 @@ export const CustomTable = props => {
           </tbody>
         </table>
       </div>
+      <Button className={styles.CustomTableButton}>Show more</Button>
     </div>
   );
 };

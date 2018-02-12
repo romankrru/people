@@ -1,3 +1,13 @@
+.CustomTableContainer {
+  position: relative;
+}
+
+.CustomTableButton {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -1px);
+}
+
 .CustomTableWrapper {
   border: 1px solid #bfbfbf;
   border-radius: 5px;
