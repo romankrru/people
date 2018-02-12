@@ -1,0 +1,71 @@
+.Button {
+  display: inline-block;
+  padding: 8px 50px;
+
+  text-transform: uppercase;
+  color: inherit;
+  font-weight: bold;
+  font-size: 15px;
+
+  border: none;
+  border: 1px solid #bfbfbf;
+  border-top-style: dashed; 
+  outline: none;
+  border-radius: 0px 0px 3px 3px;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.ButtonToggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+
+  text-transform: capitalize;
+  color: #fff;
+
+  background-color: #b6b6b6;
+  border: none;
+  border-radius: 9px;
+
+  transition: all .3s ease;
+}
+
+.ButtonToggleActive {
+  background-color: #a4c574;
+}
+
+.ButtonToggleIcon {
+  font-size: 9px;
+}
+
+.ButtonToggleText {
+  font-size: 10px;
+  display: none;
+}
+
+.ButtonToggle:hover {
+  width: 66px;
+  padding: 0 12px;
+
+  background-color: #a4c574;
+
+  animation-duration: 3s;
+  animation-name: buttonAnimation;
+}
+
+.ButtonToggleActive:hover {
+  background-color: red;
+}
+
+.ButtonToggle:hover .ButtonToggleIcon {
+  display: none;
+}
+
+.ButtonToggle:hover .ButtonToggleText {
+  display: block;
+}
