@@ -2,6 +2,7 @@ import React from 'react';
 
 import styles from './Person.css';
 import Button from '../Button/Button'
+import ratingIcon from '../../assets/img/icons/rating.svg';
 
 const Person = (props) => {
   return (
@@ -10,7 +11,7 @@ const Person = (props) => {
       <div>
         <a href="" className={styles.PersonName}>{props.name}</a>
         <div className={styles.PersonRating}>
-          <i className={`fas fa-signal ${styles.PersonRatingIcon}`}></i>
+          <img src={ratingIcon} alt="rating" className={styles.PersonRatingIcon} />
           {props.rating}
         </div>
       </div>
