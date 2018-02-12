@@ -1,9 +1,9 @@
-.PeopleTableWrapper {
+.CustomTableWrapper {
   border: 1px solid #bfbfbf;
   border-radius: 5px;
 }
 
-.PeopleTableCaption {
+.CustomTableCaption {
   display: flex;
   align-items: center;
   padding-bottom: 8px;
@@ -11,39 +11,42 @@
   font-weight: bold;
 }
 
-.PeopleTableCaptionIcon {
+.CustomTableCaptionIcon {
   margin-right: 6px;
 }
 
-.PeopleTable {
+.CustomTable {
   width: 100%;
   border-collapse: collapse;
 
   border-radius: 5px;
 }
 
-.PeopleTableStat {
+.CustomTable td:first-child {
+  font-weight: normal;
+  text-align: left;
+}
+
+.CustomTable td {
+  padding: 10px;
+
   font-weight: bold;
   text-align: center;
 }
 
-.PeopleTable td {
-  padding: 10px;
-}
-
-.PeopleTable tr:nth-child(odd) {
+.CustomTable tr:nth-child(odd) {
   background-color: #fbfbfb;
 }
 
-.PeopleTable tr {
+.CustomTable tr {
   border-bottom: 1px solid #f1f1f1;
 }
 
-.PeopleTable tbody tr:last-child {
+.CustomTable tbody tr:last-child {
   border-bottom: none;
 }
 
-.PeopleTable thead th {
+.CustomTable thead th {
   padding: 10px 0;
 
   font-size: 14px;
@@ -53,15 +56,15 @@
   border-bottom: 1px solid #d8d9da;
 }
 
-.PeopleTable thead th:first-child {
+.CustomTable thead th:first-child {
   border-radius: 5px 0 0 0;
 }
 
-.PeopleTable thead th:last-child {
+.CustomTable thead th:last-child {
   border-radius: 0 5px 0 0;
 }
 
-.PeopleTable th:first-child,
-.PeopleTable td:first-child {
+.CustomTable th:first-child,
+.CustomTable td:first-child {
   width: 55%;
 }

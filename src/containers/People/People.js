@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 
-import PeopleTable from '../../components/PeopleTable/PeopleTable';
+import { 
+  CustomTable, 
+  Caption,
+  Tbody,
+  Thead,
+  Tr,
+  Th,
+  Td
+} from '../../components/CustomTable/CustomTable';
+import Person from '../../components/Person/Person';
+import peopleIcon from '../../assets/img/icons/people.svg';
 
 class People extends Component {
   state = {
@@ -86,11 +96,38 @@ class People extends Component {
   }
 
   render() {
+    const people = this.state.people.map(person => {
+      return (
+        <Tr key={person.id}>
+          <Td>
+            <Person 
+              name={person.name}
+              avatar={person.avatar}
+              rating={person.rating}
+              isFollowing={person.isFollowing}
+              toggleFollowing={() => this.toggleFollowing(person.id)}
+            />
+          </Td>
+          <Td>{person.stats.ideas}</Td>
+          <Td>{person.stats.following}</Td>
+          <Td>{person.stats.followers}</Td>
+        </Tr>
+      );
+    });
+    
     return (
-      <PeopleTable
-        people={this.state.people}
-        toggleFollowing={this.toggleFollowing}
-      />
+      <CustomTable>
+        <Caption icon={peopleIcon}>PEOPLE</Caption>
+        <Thead>
+          <Th>&nbsp;</Th>
+          <Th>Ideas</Th>
+          <Th>Following</Th>
+          <Th>Followers</Th>
+        </Thead>
+        <Tbody>
+          {people}
+        </Tbody>
+      </CustomTable>
     );
   }
 }
