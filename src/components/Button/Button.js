@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 
 import styles from './Button.css';
+import plusIcon from '../../assets/img/icons/plus.svg';
+import checkIcon from '../../assets/img/icons/check.svg';
 
 const Button = (props) => {
   const attachedClasses = [styles.Button];
@@ -20,12 +22,17 @@ const Button = (props) => {
   let buttonContent = props.children;
 
   if (props.buttonType === 'toggle') {
+    console.log(props.isActive);
     buttonContent = (
       <Fragment>
-        <i
-          className={
-            `${props.isActive ? 'fas fa-check' : 'fas fa-plus'} ${styles.ButtonToggleIcon}`
+        <img
+          src={
+            props.isActive ?
+            checkIcon :
+            plusIcon
           }
+          alt={props.isActive ? 'Unfollow' : 'Follow'}
+          className={styles.ButtonToggleIcon}
         />
         <div className={styles.ButtonToggleText}>{props.children}</div>
       </Fragment>
@@ -33,7 +40,10 @@ const Button = (props) => {
   }
 
   return (
-    <button className={attachedClasses.join(' ')}>
+    <button 
+      className={attachedClasses.join(' ')}
+      onClick={props.onClick}
+    >
       {buttonContent}
     </button>
   );
