@@ -6,7 +6,7 @@ import Button from '../Button/Button'
 const Person = (props) => {
   return (
     <div className={styles.Person}>
-      <img src={props.avatar} alt={props.name} className={styles.PersonAvatar}/>
+      <img src={props.avatar} alt={props.name} className={styles.PersonAvatar} />
       <div>
         <a href="" className={styles.PersonName}>{props.name}</a>
         <div className={styles.PersonRating}>
@@ -18,8 +18,7 @@ const Person = (props) => {
         buttonType="toggle"
         className={styles.PersonButton}
         isActive={props.isFollowing}
-        activeText="Unfollow"
-        inactiveText="Follow"
+        onClick={props.toggleFollowing}
       >
         {props.isFollowing ? 'Unfollow' : 'Follow'}
       </Button>

@@ -33,9 +33,30 @@ class People extends Component {
     ],
   }
 
+  toggleFollowing = (personId) => {
+    this.setState(prevState => {
+      const { people } = prevState;
+
+      const personIndex = people.findIndex(person => {
+        return person.id === personId;
+      });
+
+      return {
+        persons: [
+          [...people.slice(0, personIndex)],
+          people[personIndex].isFollowing = !people[personIndex].isFollowing,
+          [...people.slice(personIndex + 1)]
+        ]
+      }
+    });
+  }
+
   render() {
     return (
-      <PeopleTable people={this.state.people} />
+      <PeopleTable
+        people={this.state.people}
+        toggleFollowing={this.toggleFollowing}
+      />
     );
   }
 }
