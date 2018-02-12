@@ -53,9 +53,6 @@
   padding: 0 12px;
 
   background-color: #a4c574;
-
-  animation-duration: 3s;
-  animation-name: buttonAnimation;
 }
 
 .ButtonToggleActive:hover {
@@ -68,4 +65,40 @@
 
 .ButtonToggle:hover .ButtonToggleText {
   display: block;
+}
+
+@media screen and (max-width: 660px) {
+  .ButtonToggle {
+    display: block;
+    height: auto;
+    width: auto;
+    padding: 4px 8px;
+
+    background-color: #a4c574;
+  }
+
+  .ButtonToggle:hover {
+    width: auto;
+    padding: 4px 8px;
+
+    background-color: #a4c574;
+  }
+
+  .ButtonToggleIcon {
+    display: none;
+  }
+
+  .ButtonToggleText {
+    display: block;
+    
+    font-size: 14px;    
+  }
+
+  .ButtonToggleActive {
+    background-color: red;
+  }
+
+  .ButtonToggleActive:hover {
+    background-color: red;
+  }
 }

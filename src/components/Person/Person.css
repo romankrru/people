@@ -36,3 +36,9 @@
 .PersonButton {
   margin-top: 4px;
 }
+
+@media screen and (max-width: 660px) {
+  .Person {
+    display: block;
+  }
+}

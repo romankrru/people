@@ -1,5 +1,7 @@
 .CustomTableContainer {
   position: relative;
+
+  margin-bottom: 46px;
 }
 
 .CustomTableButton {
