@@ -1,0 +1,40 @@
+.Person {
+  display: flex;
+  align-items: flex-start;
+}
+
+.PersonAvatar {
+  width: 50px;
+  height: 50px;
+  margin-right: 16px;
+
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+.PersonName {
+  margin-right: 16px;
+
+  font-weight: bold;
+  color: #2c76c7;
+  text-decoration: none;
+}
+
+.PersonRating {
+  display: flex;
+  align-items: center;
+
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.PersonRatingIcon {
+  margin-right: 6px;
+
+  color: #b6b6b6;
+  font-size: 14px;
+}
+
+.PersonButton {
+  margin-top: 4px;
+}
