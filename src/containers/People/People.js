@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import PeopleTable from '../../components/PeopleTable/PeopleTable';
 
 class People extends Component {
-
   state = {
     people: [
       {
@@ -29,7 +28,42 @@ class People extends Component {
           following: 19,
           followers: 25,
         },
-      }
+      },
+      {
+        id: 3,
+        name: 'James Madison',
+        avatar: 'static/avatars/3.jpeg',
+        rating: '12',
+        isFollowing: false,
+        stats: {
+          ideas: 20,
+          following: 19,
+          followers: 25,
+        },
+      },
+      {
+        id: 4,
+        name: 'Kevin Malcolm',
+        rating: '41',
+        isFollowing: true,
+        stats: {
+          ideas: 10,
+          following: 0,
+          followers: 5,
+        },
+      },
+      {
+        id: 5,
+        name: 'James Monroe',
+        avatar: 'static/avatars/4.jpeg',
+        rating: '2',
+        isFollowing: false,
+        stats: {
+          ideas: 20,
+          following: 19,
+          followers: 25,
+        },
+      },
     ],
   }
 
@@ -45,9 +79,9 @@ class People extends Component {
         persons: [
           [...people.slice(0, personIndex)],
           people[personIndex].isFollowing = !people[personIndex].isFollowing,
-          [...people.slice(personIndex + 1)]
-        ]
-      }
+          [...people.slice(personIndex + 1)],
+        ],
+      };
     });
   }
 

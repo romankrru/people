@@ -3,11 +3,12 @@ import React from 'react';
 import styles from './Person.css';
 import Button from '../Button/Button'
 import ratingIcon from '../../assets/img/icons/rating.svg';
+import avatarPlacegolder from '../../assets/img/avatar-placeholder.jpg';
 
 const Person = (props) => {
   return (
     <div className={styles.Person}>
-      <img src={props.avatar} alt={props.name} className={styles.PersonAvatar} />
+      <img src={props.avatar || avatarPlacegolder} alt={props.name} className={styles.PersonAvatar} />
       <div>
         <a href="" className={styles.PersonName}>{props.name}</a>
         <div className={styles.PersonRating}>
