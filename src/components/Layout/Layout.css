@@ -7,6 +7,7 @@
 
 .LayoutContent {
   flex: 1 0 auto;
-  max-width: 90%;
+  width: 90%;
   margin: 0 auto;
+  padding-top: 16px;
 }
