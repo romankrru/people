@@ -1,0 +1,12 @@
+.Layout {
+  /* stick footer to the bottom */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.LayoutContent {
+  flex: 1 0 auto;
+  max-width: 90%;
+  margin: 0 auto;
+}
