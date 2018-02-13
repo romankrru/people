@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
-import { 
-  CustomTable, 
+import {
+  CustomTable,
   Caption,
   Tbody,
   Thead,
@@ -14,150 +15,24 @@ import peopleIcon from '../../assets/img/icons/people.svg';
 
 class People extends Component {
   state = {
-    people: [
-      {
-        id: 1,
-        name: 'John Adams',
-        avatar: 'static/avatars/1.jpeg',
-        rating: '102',
-        isFollowing: false,
-        stats: {
-          ideas: 0,
-          following: 50,
-          followers: 0,
-        },
-      },
-      {
-        id: 2,
-        name: 'Kevin Malcolm',
-        avatar: 'static/avatars/2.jpeg',
-        rating: '1472',
-        isFollowing: true,
-        stats: {
-          ideas: 20,
-          following: 19,
-          followers: 25,
-        },
-      },
-      {
-        id: 3,
-        name: 'James Madison',
-        avatar: 'static/avatars/3.jpeg',
-        rating: '12',
-        isFollowing: false,
-        stats: {
-          ideas: 20,
-          following: 19,
-          followers: 25,
-        },
-      },
-      {
-        id: 4,
-        name: 'Kevin Malcolm',
-        rating: '41',
-        isFollowing: true,
-        stats: {
-          ideas: 10,
-          following: 0,
-          followers: 5,
-        },
-      },
-      {
-        id: 5,
-        name: 'James Monroe',
-        avatar: 'static/avatars/4.jpeg',
-        rating: '2',
-        isFollowing: false,
-        stats: {
-          ideas: 20,
-          following: 19,
-          followers: 25,
-        },
-      },
-      {
-        id: 6,
-        name: 'Andrew Jackson',
-        avatar: 'static/avatars/5.jpeg',
-        rating: '1234',
-        isFollowing: false,
-        stats: {
-          ideas: 0,
-          following: 129,
-          followers: 2522,
-        },
-      },
-      {
-        id: 7,
-        name: 'John Adams',
-        avatar: 'static/avatars/6.jpeg',
-        rating: '124',
-        isFollowing: false,
-        stats: {
-          ideas: 32,
-          following: 129,
-          followers: 222,
-        },
-      },
-      {
-        id: 8,
-        name: 'Kevin Malcolm',
-        avatar: 'static/avatars/7.jpeg',
-        rating: '134',
-        isFollowing: false,
-        stats: {
-          ideas: 322,
-          following: 0,
-          followers: 0,
-        },
-      },
-      {
-        id: 9,
-        name: 'James Madison',
-        rating: '134',
-        isFollowing: true,
-        stats: {
-          ideas: 322,
-          following: 0,
-          followers: 0,
-        },
-      },
-      {
-        id: 10,
-        name: 'John Monroe',
-        rating: '134',
-        isFollowing: true,
-        avatar: 'static/avatars/8.jpeg',
-        stats: {
-          ideas: 322,
-          following: 0,
-          followers: 0,
-        },
-      },
-      {
-        id: 11,
-        name: 'James Malcolm',
-        rating: 1,
-        isFollowing: true,
-        avatar: 'static/avatars/9.jpeg',
-        stats: {
-          ideas: 0,
-          following: 1,
-          followers: 1,
-        },
-      },
-      {
-        id: 12,
-        name: 'John Malcolm',
-        rating: '1',
-        isFollowing: true,
-        avatar: 'static/avatars/10.jpeg',
-        stats: {
-          ideas: 1,
-          following: 32,
-          followers: 87,
-        },
-      },
-    ],
+    people: [],
+  }
+
+  componentDidMount() {
+    axios.get('https://people-99bd8.firebaseio.com/people.json')
+      .then(({ data }) => {
+        const people = Object.keys(data).map(key => {
+          return {
+            id: key,
+            ...data[key],
+          };
+        });
+
+        this.setState({
+          people,
+        });
+      })
+      .catch(err => console.log(err));
   }
 
   toggleFollowing = (personId) => {
@@ -167,6 +42,13 @@ class People extends Component {
       const personIndex = people.findIndex(person => {
         return person.id === personId;
       });
+
+      axios.patch('https://people-99bd8.firebaseio.com/people.json', {
+        [personId]: {
+          ...people[personIndex],
+          ...{ isFollowing: !people[personIndex].isFollowing },
+        }
+      }).catch(err => console.log(err));
 
       return {
         persons: [
@@ -183,7 +65,7 @@ class People extends Component {
       return (
         <Tr key={person.id}>
           <Td>
-            <Person 
+            <Person
               name={person.name}
               avatar={person.avatar}
               rating={person.rating}
@@ -197,7 +79,7 @@ class People extends Component {
         </Tr>
       );
     });
-    
+
     return (
       <CustomTable>
         <Caption icon={peopleIcon}>PEOPLE</Caption>
